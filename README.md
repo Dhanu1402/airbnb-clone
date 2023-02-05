@@ -7,3 +7,5 @@
 2. Create React App
 
 3. Setting up Tailwind CSS
+
+4. Making Header
