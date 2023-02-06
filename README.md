@@ -11,3 +11,5 @@
 4. Making Header
 
 5. Handling Routes
+
+6. Create Login & Register Screen
