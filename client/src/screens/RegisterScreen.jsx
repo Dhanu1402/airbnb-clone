@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import { useState, useContext } from 'react';
 import axios from 'axios';
+import { UserContext } from '../components/UserContext';
 
 export default function RegisterScreen() {
   const [name, setName] = useState('');
@@ -9,6 +10,10 @@ export default function RegisterScreen() {
   const [email, setEmail] = useState('');
 
   const [password, setPassword] = useState('');
+
+  const [redirect, setRedirect] = useState(false);
+
+  const { setUser } = useContext(UserContext);
 
   async function registerUser(ev) {
     ev.preventDefault();
@@ -18,10 +23,16 @@ export default function RegisterScreen() {
         email,
         password,
       });
+      setUser(data);
       alert('Registration successful. Now you can log in');
+      setRedirect(true);
     } catch (e) {
       alert('Registration failed. Please try again later');
     }
+  }
+
+  if (redirect) {
+    return <Navigate to={'/'} />;
   }
 
   return (
