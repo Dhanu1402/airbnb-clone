@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './Header';
+import Header from '../components/Header';
 
-export default function Index() {
+export default function HomeScreen() {
   return (
     <div>
       <Header />

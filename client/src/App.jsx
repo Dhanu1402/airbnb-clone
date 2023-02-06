@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Index from './components/Index';
+import HomeScreen from './screens/HomeScreen';
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <main>
         <container className="mt-3">
           <Routes>
-            <Route index element={<Index />} />
+            <Route path="/" element={<HomeScreen />} />
           </Routes>
         </container>
       </main>
