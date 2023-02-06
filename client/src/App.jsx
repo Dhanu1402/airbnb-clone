@@ -4,6 +4,9 @@ import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import Layout from './components/Layout';
 import RegisterScreen from './screens/RegisterScreen';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:1000';
 
 function App() {
   return (
