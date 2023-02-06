@@ -1,11 +1,12 @@
 import './App.css';
-import Header from './components/Header';
+import { Routes, Route } from 'react-router-dom';
+import Index from './components/Index';
 
 function App() {
   return (
-    <div>
-      <Header />
-    </div>
+    <Routes>
+      <Route index element={<Index />} />
+    </Routes>
   );
 }
 
