@@ -17,3 +17,5 @@
 7. Setting up api in api folder in index.js on prot 4000 and running through node index.js command in terminal that show's test ok on localhost:4000
 
 8. Registering user in local storage and checking the connection with api
+
+9. Connecting Mongodb
