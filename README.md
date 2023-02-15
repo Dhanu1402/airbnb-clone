@@ -19,3 +19,5 @@
 8. Registering user in local storage and checking the connection with api
 
 9. Connecting Mongodb
+
+10. Creating Account Page with logout system
