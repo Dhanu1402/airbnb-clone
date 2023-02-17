@@ -24,6 +24,10 @@ function App() {
                 <Route path="/login" element={<LoginScreen />} />
                 <Route path="/register" element={<RegisterScreen />} />
                 <Route path="/account/:subpage?" element={<AccountScreen />} />
+                <Route
+                  path="/account/:subpage/:action"
+                  element={<AccountScreen />}
+                />
               </Route>
             </Routes>
           </container>
