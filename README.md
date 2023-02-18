@@ -23,3 +23,5 @@
 10. Creating Account Page with logout system
 
 11. Creating Places Screen Form
+
+12. Uploading photos section and handling perks section
