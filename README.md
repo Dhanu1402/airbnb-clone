@@ -25,3 +25,5 @@
 11. Creating Places Screen Form
 
 12. Uploading photos section and handling perks section
+
+13. Small bugfixes and code refactoring

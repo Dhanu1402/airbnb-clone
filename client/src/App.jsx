@@ -6,7 +6,9 @@ import Layout from './components/Layout';
 import RegisterScreen from './screens/RegisterScreen';
 import axios from 'axios';
 import { UserContextProvider } from './components/UserContext';
-import AccountScreen from './screens/AccountScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import PlacesScreen from './screens/PlacesScreen';
+import PlacesFormScreen from './screens/PlacesFormScreen';
 
 axios.defaults.baseURL = 'http://127.0.0.1:1000';
 
@@ -23,10 +25,11 @@ function App() {
                 <Route path="/home" element={<HomeScreen />} />
                 <Route path="/login" element={<LoginScreen />} />
                 <Route path="/register" element={<RegisterScreen />} />
-                <Route path="/account/:subpage?" element={<AccountScreen />} />
+                <Route path="/account" element={<ProfileScreen />} />
+                <Route path="/account/places" element={<PlacesScreen />} />
                 <Route
-                  path="/account/:subpage/:action"
-                  element={<AccountScreen />}
+                  path="/account/places/new"
+                  element={<PlacesFormScreen />}
                 />
               </Route>
             </Routes>

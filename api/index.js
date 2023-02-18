@@ -10,6 +10,8 @@ const jwt = require('jsonwebtoken');
 
 const User = require('./models/User.js');
 
+const Place = require('./models/Place.js');
+
 const cookieParser = require('cookie-parser');
 
 const imageDownloader = require('image-downloader');
@@ -114,9 +116,8 @@ app.post('/upload-by-link', async (req, res) => {
 });
 
 const photosMiddleware = multer({ dest: 'uploads/' });
-app.post('/upload', photosMiddleware.array('photos'), (req, res) => {
+app.post('/upload', photosMiddleware.array('photos', 100), (req, res) => {
   const uploadedFiles = [];
-
   // loop for grabbing the extension and changing it
   for (let i = 0; i < req.files.length; i++) {
     const { path, originalname } = req.files[i];
@@ -126,11 +127,41 @@ app.post('/upload', photosMiddleware.array('photos'), (req, res) => {
     const ext = parts[parts.length - 1];
 
     const newPath = path + '.' + ext;
-
     fs.renameSync(path, newPath);
     uploadedFiles.push(newPath.replace('uploads/', ''));
   }
-  res.json(req.files);
+  res.json(uploadedFiles);
+});
+
+app.post('/places', (req, res) => {
+  const { token } = req.cookies;
+  const {
+    title,
+    address,
+    addedPhotos,
+    description,
+    perks,
+    extraInfo,
+    checkIn,
+    checkOut,
+    maxGuests,
+  } = req.body;
+  jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+    if (err) throw err;
+    const placeDoc = await Place.create({
+      owner: userData.id,
+      title,
+      address,
+      photos: addedPhotos,
+      description,
+      perks,
+      extraInfo,
+      checkIn,
+      checkOut,
+      maxGuests,
+    });
+    res.json(placeDoc);
+  });
 });
 
 app.listen(1000);
