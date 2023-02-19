@@ -82,11 +82,14 @@ export default function PlacesFormScreen() {
     };
     if (id) {
       // update
-      await axios.put('/places', { id, ...placeData });
+      await axios.put('/places', {
+        id,
+        ...placeData,
+      });
       setRedirect(true);
     } else {
       // new place
-      await axios.post('/places', ...placeData);
+      await axios.post('/places', placeData);
       setRedirect(true);
     }
   }
