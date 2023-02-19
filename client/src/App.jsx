@@ -22,7 +22,7 @@ function App() {
           <container className="mt-3">
             <Routes>
               <Route path="/" element={<Layout />}>
-                <Route path="/home" element={<HomeScreen />} />
+                <Route index element={<HomeScreen />} />
                 <Route path="/login" element={<LoginScreen />} />
                 <Route path="/register" element={<RegisterScreen />} />
                 <Route path="/account" element={<ProfileScreen />} />

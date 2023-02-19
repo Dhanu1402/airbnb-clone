@@ -33,3 +33,5 @@
 15. Editing existing places
 
 16. Deleting photos and selecting main/cover photos
+
+17. Listing places on homepage
