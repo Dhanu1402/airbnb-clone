@@ -29,3 +29,5 @@
 13. Small bugfixes and code refactoring
 
 14. Listing user places/ Accomodations
+
+15. Editing existing places

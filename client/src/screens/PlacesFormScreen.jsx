@@ -6,7 +6,7 @@ import PhotosUploader from '../components/PhotosUploader';
 import { Navigate, useParams } from 'react-router-dom';
 
 export default function PlacesFormScreen() {
-  // const { id } = useParams();
+  const { id } = useParams();
 
   const [title, setTitle] = useState('');
 
@@ -28,12 +28,23 @@ export default function PlacesFormScreen() {
 
   const [redirect, setRedirect] = useState(false);
 
-  // useEffect(() => {
-  //   if (!id) {
-  //     return;
-  //   }
-  //   axios.get('/user-places/' + id);
-  // }, [id]);
+  useEffect(() => {
+    if (!id) {
+      return;
+    }
+    axios.get('/user-places/' + id).then((response) => {
+      const { data } = response;
+      setTitle(data.title);
+      setAddress(data.address);
+      setAddedPhotos(data.photos);
+      setDescription(data.description);
+      setPerks(data.perks);
+      setExtraInfo(data.extraInfo);
+      setCheckIn(data.checkIn);
+      setCheckOut(data.checkOut);
+      setMaxGuests(data.maxGuests);
+    });
+  }, [id]);
 
   function inputHeader(text) {
     return <h2 className="text-2xl mt-4">{text}</h2>;
@@ -52,9 +63,9 @@ export default function PlacesFormScreen() {
     );
   }
 
-  async function addNewPlaces(ev) {
+  async function savePlace(ev) {
     ev.preventDefault();
-    await axios.post('/places', {
+    const placeData = {
       title,
       address,
       addedPhotos,
@@ -64,8 +75,16 @@ export default function PlacesFormScreen() {
       checkIn,
       checkOut,
       maxGuests,
-    });
-    setRedirect(true);
+    };
+    if (id) {
+      // update
+      await axios.put('/places', { id, ...placeData });
+      setRedirect(true);
+    } else {
+      // new place
+      await axios.post('/places', ...placeData);
+      setRedirect(true);
+    }
   }
 
   if (redirect) {
@@ -75,7 +94,7 @@ export default function PlacesFormScreen() {
   return (
     <div>
       <AccountNav />
-      <form onSubmit={addNewPlaces}>
+      <form onSubmit={savePlace}>
         {preInput(
           'Title',
           'Title for your place. should be short and catchy as in advertisement'
