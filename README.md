@@ -35,3 +35,5 @@
 16. Deleting photos and selecting main/cover photos
 
 17. Listing places on homepage
+
+18. Single place page

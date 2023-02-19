@@ -9,6 +9,7 @@ import { UserContextProvider } from './components/UserContext';
 import ProfileScreen from './screens/ProfileScreen';
 import PlacesScreen from './screens/PlacesScreen';
 import PlacesFormScreen from './screens/PlacesFormScreen';
+import SinglePlaceScreen from './screens/SinglePlaceScreen';
 
 axios.defaults.baseURL = 'http://127.0.0.1:1000';
 
@@ -18,27 +19,18 @@ function App() {
   return (
     <UserContextProvider>
       <BrowserRouter>
-        <main>
-          <container className="mt-3">
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<HomeScreen />} />
-                <Route path="/login" element={<LoginScreen />} />
-                <Route path="/register" element={<RegisterScreen />} />
-                <Route path="/account" element={<ProfileScreen />} />
-                <Route path="/account/places" element={<PlacesScreen />} />
-                <Route
-                  path="/account/places/new"
-                  element={<PlacesFormScreen />}
-                />
-                <Route
-                  path="/account/places/:id"
-                  element={<PlacesFormScreen />}
-                />
-              </Route>
-            </Routes>
-          </container>
-        </main>
+        <Routes className="mt-3">
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomeScreen />} />
+            <Route path="/login" element={<LoginScreen />} />
+            <Route path="/register" element={<RegisterScreen />} />
+            <Route path="/account" element={<ProfileScreen />} />
+            <Route path="/account/places" element={<PlacesScreen />} />
+            <Route path="/account/places/new" element={<PlacesFormScreen />} />
+            <Route path="/account/places/:id" element={<PlacesFormScreen />} />
+            <Route path="/place/:id" element={<SinglePlaceScreen />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
     </UserContextProvider>
   );
