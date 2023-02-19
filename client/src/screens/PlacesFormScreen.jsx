@@ -3,6 +3,7 @@ import AccountNav from '../components/AccountNav';
 import axios from 'axios';
 import Perks from '../components/Perks';
 import PhotosUploader from '../components/PhotosUploader';
+import { Navigate } from 'react-router-dom';
 
 export default function PlacesFormScreen() {
   const [title, setTitle] = useState('');
@@ -22,6 +23,8 @@ export default function PlacesFormScreen() {
   const [checkOut, setCheckOut] = useState('');
 
   const [maxGuests, setMaxGuests] = useState(1);
+
+  const [redirect, setRedirect] = useState(false);
 
   function inputHeader(text) {
     return <h2 className="text-2xl mt-4">{text}</h2>;
@@ -53,6 +56,11 @@ export default function PlacesFormScreen() {
       checkOut,
       maxGuests,
     });
+    setRedirect(true);
+  }
+
+  if (redirect) {
+    return <Navigate to={'/account/places'} />;
   }
 
   return (

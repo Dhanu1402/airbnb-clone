@@ -7,6 +7,8 @@ export default function PlacesScreen() {
     <div>
       <AccountNav />
       <div className="text-center">
+        list of all added places
+        <br />
         <Link
           className="inline-flex gap-1 bg-primary text-white py-2 px-6 rounded-full"
           to={'/account/places/new'}
