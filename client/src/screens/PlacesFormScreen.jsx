@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AccountNav from '../components/AccountNav';
 import axios from 'axios';
 import Perks from '../components/Perks';
 import PhotosUploader from '../components/PhotosUploader';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 
 export default function PlacesFormScreen() {
+  // const { id } = useParams();
+
   const [title, setTitle] = useState('');
 
   const [address, setAddress] = useState('');
@@ -25,6 +27,13 @@ export default function PlacesFormScreen() {
   const [maxGuests, setMaxGuests] = useState(1);
 
   const [redirect, setRedirect] = useState(false);
+
+  // useEffect(() => {
+  //   if (!id) {
+  //     return;
+  //   }
+  //   axios.get('/user-places/' + id);
+  // }, [id]);
 
   function inputHeader(text) {
     return <h2 className="text-2xl mt-4">{text}</h2>;

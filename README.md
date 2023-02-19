@@ -27,3 +27,5 @@
 12. Uploading photos section and handling perks section
 
 13. Small bugfixes and code refactoring
+
+14. Listing user places/ Accomodations

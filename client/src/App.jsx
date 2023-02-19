@@ -31,6 +31,10 @@ function App() {
                   path="/account/places/new"
                   element={<PlacesFormScreen />}
                 />
+                {/* <Route
+                  path="/account/places/:id"
+                  element={<PlacesFormScreen />}
+                /> */}
               </Route>
             </Routes>
           </container>
