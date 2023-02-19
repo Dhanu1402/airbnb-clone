@@ -14,8 +14,8 @@ export default function HomeScreen() {
     <div className="mt-8 grid gap-x-6 gap-y-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
       {places.length > 0 &&
         places.map((place) => (
-          <div>
-            <div className="bg-gray-500 mb-2 rounded-2xl flex">
+          <div className="h-80 w-80">
+            <div className="bg-gray-500 h-80 w-80 mb-2 rounded-2xl flex">
               {place.photos?.[0] && (
                 <img
                   className="rounded-2xl object-cover aspect-square"
