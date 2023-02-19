@@ -32,7 +32,7 @@ export default function PlacesFormScreen() {
     if (!id) {
       return;
     }
-    axios.get('/user-places/' + id).then((response) => {
+    axios.get('places/' + id).then((response) => {
       const { data } = response;
       setTitle(data.title);
       setAddress(data.address);
