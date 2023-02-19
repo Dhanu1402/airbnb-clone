@@ -68,6 +68,7 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
                 src={'http://localhost:1000/uploads/' + link}
                 alt=""
               />
+              {/* remove photo section */}
               <button
                 onClick={(ev) => removePhoto(ev, link)}
                 className="cursor-pointer absolute bottom-1 right-1 text-white bg-black bg-opacity-50 rounded-2xl py-2 px-3"
@@ -87,6 +88,7 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
                   />
                 </svg>
               </button>
+              {/* select as main photo section */}
               <button
                 onClick={(ev) => selectAsMainPhoto(ev, link)}
                 className="cursor-pointer absolute bottom-1 left-1 text-white bg-black bg-opacity-50 rounded-2xl py-2 px-3"
