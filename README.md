@@ -37,3 +37,5 @@
 17. Listing places on homepage
 
 18. Single place page
+
+19. Booking functionality
