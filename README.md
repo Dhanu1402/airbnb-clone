@@ -39,3 +39,5 @@
 18. Single place page
 
 19. Booking functionality
+
+20. User bookings page

@@ -10,6 +10,8 @@ import ProfileScreen from './screens/ProfileScreen';
 import PlacesScreen from './screens/PlacesScreen';
 import PlacesFormScreen from './screens/PlacesFormScreen';
 import SinglePlaceScreen from './screens/SinglePlaceScreen';
+import BookingsScreen from './screens/BookingsScreen';
+import SingleBookingScreen from './screens/SingleBookingScreen';
 
 axios.defaults.baseURL = 'http://127.0.0.1:1000';
 
@@ -29,6 +31,11 @@ function App() {
             <Route path="/account/places/new" element={<PlacesFormScreen />} />
             <Route path="/account/places/:id" element={<PlacesFormScreen />} />
             <Route path="/place/:id" element={<SinglePlaceScreen />} />
+            <Route path="/account/bookings" element={<BookingsScreen />} />
+            <Route
+              path="/account/bookings/:id"
+              element={<SingleBookingScreen />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>
