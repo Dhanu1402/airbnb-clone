@@ -41,3 +41,5 @@
 19. Booking functionality
 
 20. User bookings page
+
+21. Single booking page
